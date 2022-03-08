@@ -1,0 +1,233 @@
+@import url('https://fonts.googleapis.com/css2?family=Akaya+Telivigala&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Serif:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital@1&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond&display=swap');
+*{
+    margin:0px;
+    padding:0px;
+   
+    /*font-family: 'Roboto Serif', sans-serif;*/
+    /*font-family: 'Akaya Telivigala', cursive;*/
+    font-family: 'EB Garamond', serif;
+
+}
+header{
+    font-family: 'EB Garamond', serif;
+}
+ul{
+    list-style-type: none;
+}
+ul li{
+    display: inline;
+}
+ul li a{
+    font-size:25px;
+    color:#7D4F50 !important;
+}
+ul li a:hover{
+    border-bottom: #839791 2px solid;
+    text-decoration: none;
+    
+}
+#navigation{
+    text-align: center;
+    color:#7D4F50;
+}
+#navigation i{
+ display: none;
+}
+#banner{
+    
+ background-image: url("../img/living-room-g1b3b990f6_1280.jpg");
+ background-size: cover;
+ width: auto;
+ height: 680px;
+ border-radius: 5px;
+ 
+}
+#motto{
+    
+    width: 30%;
+    text-align: center;
+    margin-top: 17%;
+    margin-bottom: 3%;
+    border: 2px solid #7D4F50;
+    border-radius: 5px;
+    background-color: #ffff;
+    padding: 30px 10px;
+    color:#7D4F50;
+}
+
+#buttons-Links{
+    text-align: center;
+    margin:1 auto;
+}
+.dugme{
+    border: 1px solid #7D4F50;
+    background-color: #ffff;
+    color: #839791;
+    font-weight: bold;
+    font-size: 20px;
+
+}
+.dugme:hover{
+    color:#7D4F50;
+    box-shadow: 3px 4px #839791;
+}
+.btnCart{
+    border: 1px solid #7D4F50;
+    background-color: #ffff;
+    color: #839791;
+    font-weight: bold;
+    font-size: 15px;
+}
+.btnCart:hover{
+    color:#7D4F50;
+    box-shadow: 3px 4px #839791;
+}
+.description{
+    text-align: center;
+    padding:2%;
+    height: inherit;
+}
+.centering{
+    margin:0 auto;
+}
+.top-margin{
+    margin-top:10%;
+}
+
+#footer{
+    border-top:2px solid #839791;
+    border-radius: 5px;
+    padding: 2% 0;
+}
+#cart{
+    text-align: center;
+    color:#CC8B86;
+    
+}
+#cart span{
+    font-size: 26px;
+    border:1px solid #7D4F50;
+    padding:3px 15px;
+    border-radius: 5px 10px;
+}
+#cart i{
+    font-size: 26px;
+}
+#cart i:hover{
+    font-size: 30px;
+}
+.borderCards{
+    border:2px solid #839791;
+    border-radius: 20px 5px;
+    border-style: outset;
+    padding: 2%;
+}
+.cardP{
+    position: relative;
+    transform: translateX(200px);
+    opacity: 0;
+    transition: all 2s ease;
+}
+.cardP.active{
+    transform: translateY(0px);
+    opacity: 1;
+}
+.apperText{
+    position: relative;
+    transform: translateY(100px);
+    opacity: 0;
+    transition: all 2s ease;
+}
+
+.colorCh{
+    color:#7D4F50;
+    font-size: 22px;
+   
+}
+.borderLi{
+    border-color: #839791;
+    border-style: inset;
+}
+.week{
+    background-color: #839791;
+    color:#fff;
+    border-radius:5px 10px;
+}
+.spring{
+    background-color:#CC8B86;
+    color:#fff;
+    border-radius:5px 10px;
+}
+.holiday{
+    background-color:#7D4F50;
+    color:#fff; 
+    border-radius:5px 10px;
+}
+.sortC{
+    color:#7D4F50;
+    font-size: 18px;
+}
+.fontS{
+    font-size:18px;
+}
+
+.filterC{
+   
+    background-color:#AA998F;
+    color:#fff;
+    border-radius: 5px 10px;
+}
+
+.pointer {
+    cursor: pointer;
+}
+input[type=search]{
+    border: none;
+    border-bottom:2px solid #7D4F50;
+    padding: 5px;
+}
+.fontIS{
+    font-size: 22px;
+    color: #839791;
+}
+.inStock{
+    color:green;
+    font-size: 17px;
+}
+.outStock{
+    color:#ae2012;
+    font-size: 17px;
+}
+ 
+.footerCol{
+    background-color:#839791;
+    border-radius: 5px 10px;
+    color:#fff;
+    font-size: 18px;
+}
+.colorWhite{
+    color: #fff;
+}
+.colorA{
+    color:#7D4F50;
+    
+}
+.fontSI{
+    font-size:25px
+}
+#socialN a:hover{
+    color:#839791;
+}
+
+
+@media screen and (max-width:769px){
+    ul li{
+        display: block !important;
+    }
+    #navigation i{
+        display: block !important;
+    }
+}

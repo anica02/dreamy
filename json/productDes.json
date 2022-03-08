@@ -1,0 +1,50 @@
+[
+    {
+        "id":1,
+        "img":{
+            "src":"Armchair6.jpg",
+            "alt":"Armchair 6"
+        },
+        "title":"ARMCHAIRS",
+        "description":{
+            "h4":"We provide a wide range of armchairs, which differ in material, appearance and color. Comfort is guaranteed",
+            "h5":"Make your living room look better with our products"
+        }
+    },
+    {
+        "id":2,
+        "img":{
+            "src":"Table 3.png",
+            "alt":"Table 3"
+        },
+        "title":"TABLES",
+        "description":{
+            "h4":"We offer a wide range of tables, from nightstands to tables in the living room",
+            "h5":"Where is the best place to put your things away than our tabless"
+        }
+    },
+    {
+        "id":3,
+        "img":{
+            "src":"Sofa1.png",
+            "alt":"Sofa 1"
+        },
+        "title":"SOFAS",
+        "description":{
+            "h4":"We provide a wide range of sofas, a variety of colors, sizes and materials",
+            "h5":"It doesn't matter if you are reading a book or relaxing, our sofa provides great comfort"
+        }
+    },
+    {
+        "id":4,
+        "img":{
+            "src":"lamp4.png",
+            "alt":"Lamp 4"
+        },
+        "title":"LAMPS",
+        "description":{
+            "h4":"We offer a different range of lamps, variety in color, shape and light intensity",
+            "h5":"Light your home with our lamps"
+        }
+    }
+]

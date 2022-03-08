@@ -1,0 +1,206 @@
+[
+    {
+        "id":1,
+        "name":"SOLKLINT",
+        "categoryId":1,
+        "img":{
+            "src":"lamp1.png",
+            "alt":"Lamp 1"
+        },
+        "discountId":1,
+        "price":{
+            "active":37.15,
+            "discount":55.73
+        },
+        "colorId":6,
+        "supplies": true
+
+    },
+    {
+        "id":2,
+        "name":"VIMLE",
+        "categoryId":4,
+        "img":{
+            "src":"Sofa1.png",
+            "alt":"Sofa 1"
+        },
+        "discountId":1,
+        "price":{
+            "active":241.47,
+            "discount":260.06
+        },
+        "colorId":6,
+        "supplies": true
+
+    },
+    {
+        "id":3,
+        "name":"FRIHETEN",
+        "categoryId":3,
+        "img":{
+            "src":"Armchair1.png",
+            "alt":"Armchair 1"
+        },
+        "discountId":3,
+        "price":{
+            "active":213.61,
+            "discount":250.77
+        },
+        "colorId":5,
+        "supplies": false
+
+    },
+    {
+        "id":4,
+        "name":"MALM",
+        "categoryId":5,
+        "img":{
+            "src":"nightstand1.png",
+            "alt":"Nightstand 1"
+        },
+        "discountId":2,
+        "price":{
+            "active":83.58,
+            "discount":92.88
+        },
+        "colorId":3
+
+    },
+    {
+        "id":5,
+        "name":"TONVIS",
+        "categoryId":1,
+        "img":{
+            "src":"lamp5.png",
+            "alt":"Lamp 5"
+        },
+        "discountId":null,
+        "price":{
+            "active":46.43,
+            "discount":null
+        },
+        "colorId":2,
+        "supplies": true
+
+    },
+    {
+        "id":6,
+        "name":"GLOSTAD",
+        "categoryId":4,
+        "img":{
+            "src":"Sofa3.png",
+            "alt":"Sofa 3"
+        },
+        "discountId":null,
+        "price":{
+            "active":222.91,
+            "discount":null
+        },
+        "colorId":4,
+        "supplies": false
+
+    },
+    {
+        "id":7,
+        "name":"PELLO",
+        "categoryId":3,
+        "img":{
+            "src":"Armchair2.png",
+            "alt":"Armchair 2"
+        },
+        "discountId":null,
+        "price":{
+            "active":352.94,
+            "discount":null
+        },
+        "colorId":6,
+        "supplies": true
+
+    },
+    {
+        "id":8,
+        "name":"TOFTERYD",
+        "categoryId":2,
+        "img":{
+            "src":"Table5.png",
+            "alt":"Table 5"
+        },
+        "discountId":null,
+        "price":{
+            "active":269.34,
+            "discount":null
+        },
+        "colorId":1,
+        "supplies": true
+
+    },
+    {
+        "id":9,
+        "name":"ASTRID",
+        "categoryId":1,
+        "img":{
+            "src":"Lamp3.png",
+            "alt":"Lamp 3"
+        },
+        "discountId":1,
+        "price":{
+            "active":25.08,
+            "discount":26.93
+        },
+        "colorId":4,
+        "supplies": true
+
+    },
+    {
+        "id":10,
+        "name":"LANDSKRONA",
+        "categoryId":4,
+        "img":{
+            "src":"Sofa2.png",
+            "alt":"Sofa 2"
+        },
+        "discountId":3,
+        "price":{
+            "active":1764.68,
+            "discount":2229.07
+        },
+        "colorId":5,
+        "supplies": true
+
+    },
+    {
+        "id":11,
+        "name":"EKERO",
+        "categoryId":3,
+        "img":{
+            "src":"Armchair4.png",
+            "alt":"Armchair 4"
+        },
+        "discountId":2,
+        "price":{
+            "active":566.55,
+            "discount":603.71
+        },
+        "colorId":3,
+        "supplies": false
+
+    },
+    {
+        "id":12,
+        "name":"LACK",
+        "categoryId":5,
+        "img":{
+            "src":"nightstand5.png",
+            "alt":"Nightstand 5"
+        },
+        "discountId":3,
+        "price":{
+            "active":13.93,
+            "discount":16.72
+        },
+        "colorId":2,
+        "supplies": true
+
+    }
+    
+]

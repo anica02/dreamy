@@ -1,0 +1,27 @@
+[
+    {
+        "id":1,
+        "icon":"fab fa-instagram-square",
+        "href":"https://www.instagram.com/_sweetheart55_/"
+    },
+    {
+        "id":2,
+        "icon":"fab fa-twitter-square",
+        "href":"https://twitter.com/anika99black"
+    },
+    {
+        "id":3,
+        "icon":"fab fa-linkedin",
+        "href":"https://www.linkedin.com/in/anica-radenkovi%C4%87-9519b3206/"
+    },
+    {
+        "id":4,
+        "icon":"fab fa-facebook-square",
+        "href":"https://www.facebook.com/anica.radenkovic96/"
+    },
+    {
+        "id":5,
+        "icon":"fab fa-github-square",
+        "href":"https://github.com/anica02"
+    }
+]

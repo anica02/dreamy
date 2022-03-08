@@ -1,0 +1,18 @@
+[
+    {
+        "id":1,
+        "name":"Discount Week",
+        "cssStyle":"week"
+    },
+    {
+        "id":2,
+        "name":"Spring Cleaning",
+        "cssStyle":"spring"
+    },
+    {
+        "id":3,
+        "name":"Holiday discount",
+        "cssStyle":"holiday"
+    }
+
+]
