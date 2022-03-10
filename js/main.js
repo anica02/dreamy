@@ -38,6 +38,11 @@ window.onload = function(){
     ajaxCall("nav.json", function (data){
       navigationBar(data)
     });
+    ajaxCall("products.json", function (data){
+      localStorage.setItem("products",JSON.stringify(data));
+      productsHtml(data)
+
+    });
     ajaxCall("categories.json", function(data){
         fetchCategories(data);
         categories=data;
@@ -50,11 +55,7 @@ window.onload = function(){
       discounts=data;
     });
 
-    ajaxCall("products.json", function (data){
-      localStorage.setItem("products",JSON.stringify(data));
-      productsHtml(data)
-
-    });
+    
     ajaxCall("socialNetworks.json", function(data){
       socialNetHtml(data);
     })
@@ -211,7 +212,7 @@ function productsHtml(data){
               ${addDiscount(product.discountId)}
             </div>
 
-            <img src="../img/${product.img.src}" class="card-img-top " alt="${product.img.alt}">
+            <img src="img/${product.img.src}" class="card-img-top " alt="${product.img.alt}">
              <div class="card-body text-left">
                 <h4 class="card-title">${product.name}</h4>
                 <h5 class="card-text">${productPrice(product.price)}</h5>
