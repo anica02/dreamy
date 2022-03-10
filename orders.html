@@ -16,7 +16,7 @@
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
                       <span class="navbar-toggler-icon"></span>
                     </button>
-                  
+
                     <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
                       <ul class="navbar-nav mr-auto mt-2 mt-lg-0" id="navigation">
                       </ul>
@@ -37,51 +37,48 @@
                             <div class="form-group" id="inputName">
                                 <label class="font-weight-bold colorA fontS" for="flName">First name and last name: *</label>
                                 <input type="text" name="flName" id="flName" class="form-control" placeholder="Petar Petrović"/>
-                                <div class="invalid-feedback">
-                                    Please choose a username.
-                                  </div>
+                                <div></div>
                             </div>
                             <div class="form-group" id="inputAdress">
                                 <label class="font-weight-bold colorA fontS" for="adress">Adress: *</label>
                                 <input type="text" name="adress" id="adress" class="form-control" placeholder="Dimitrija Tucovića 12, Beograd 11000"/>
-                                <p></p>
+                                <div></div>
                             </div>
                             <div class="form-group" id="inputNumber">
                                 <label class="font-weight-bold colorA fontS" for="phoneNumber">Phone number: *</label>
                                 <input type="text" name="phoneNumber" id="phoneNumber" class="form-control" placeholder="06xxxxxxxx"/>
-                                <div class="valid-tooltip">
-                                    Looks good!
-                                  </div>
+                                <div></div>
                             </div>
-                            <div  class="form-group" id="inputPayment">
+                            <div  class="form-group" id="selectPayment">
                                 <label class="font-weight-bold colorA fontS" for="payment">Payment: *</label><br/>
-                                <select class="form-control">
+                                <select class="form-control" id="payment">
                                     <option value="0">Chosee payment</option>
                                     <option value="cash">Cash</option>
                                     <option value="creditCard">Credit card</option>
                                 </select>
-                                <p></p>
+                                <div></div>
                             </div>
                             <div  class="form-group" id="inputDelivery">
                                 <label class="font-weight-bold colorA fontS" for="delivery">Delivery: *</label><br/>
                                 <input type="radio" name="delivery" id="adress" value="adress"> Home adress &nbsp;
                                 <input type="radio" name="delivery" id="postOffice" value="postOffice"> The post office
-                                <p></p>
+                                <div></div>
                             </div>
-                            
-                            <!-- Button trigger modal -->   
-                                <button type="button" class="btn bcGreen colorWhite py-2 px-3 font-weight-bold" data-toggle="modal" data-target="#exampleModal">
+
+                            <!-- Button trigger modal -->
+                                <button type="button" onclick='submitPurches()' class="btn bcGreen colorWhite py-2 px-3 font-weight-bold" >
                                     Submit
                                 </button>
-  
-                                <!-- Modal -->
-                                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div id="cartError"></div>
+                                <!--data-toggle="modal" data-target="#exampleModal"-->
+                                <!-- Modal
+                                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="false">
                                     <div class="modal-dialog">
                                     <div class="modal-content">
                                         <div class="modal-header">
                                         <h5 class="modal-title" id="exampleModalLabel">Purchase made</h5>
                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                            <span aria-hidden="true">&times;</span>
+                                            <span aria-hidden="false">&times;</span>
                                         </button>
                                         </div>
                                         <div class="modal-body">
@@ -92,67 +89,36 @@
                                         </div>
                                     </div>
                                     </div>
-                                </div>
+                                </div> -->
                         </form>
                     </div>
-                    
+
                 </div>
                 <div class="col-12 col-lg-4 py-5">
                     <h3 class="font-weight-bold font-italic text-center colorA">Cart status</h3>
                     <div id="cartStatus">
-                        <!-- <div class="row">
-                            <div class="col text-center">
-                                <p>Product</p>
-                            </div>
-                            <div class="col text-center">
-                                <p>Name</p>
-                            </div>
-                            <div class="col text-center">
-                                <p>Quantity</p>
-                            </div>
-                            <div class="col text-center">
-                                <p>Price</p>
-                            </div>
-                            <div class="col text-center">
-                                <p></p>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col text-center">
-                                <p>Slika</p>
-                            </div>
-                            <div class="col text-center">
-                                <p>Fotelja</p>
-                            </div>
-                            <div class="col text-center">
-                                <input type="number" name="quantity" min="0" class="widthNum text-center"/>
-                            </div>
-                            <div class="col text-center">
-                                <p>1234</p>
-                            </div>
-                            <div class="col text-center">
-                                <button>Remove</button>
-                            </div>
-                        </div> -->
+
                     </div>
-                   
+
                     <div class="row my-4">
                         <div class="col-6 text-center">
-                            <p>Ukuna cena</p>
+                            <p>Total price</p>
+                            <p id="totalPrice"></p>
                         </div>
                         <div class="col-6 text-center">
-                            <p>Ukloni sve iz korpe</p>
+                            <p>Remove all from cart</p>
+                            <button onclick="removeAll()" class="removeButton py-1 px-1">Remove all</button>
                         </div>
                     </div>
 
                 </div>
                 <div class="col-12  col-lg-4 py-5" id="cart">
-                    <img src="img/flat-design-g85fbe6512_640.png"/>
-                   
+                    <img src="img/flat-design-g85fbe6512_640.png" alt="Shopping bag" class="my-5"/>
+
                 </div>
             </div>
         </div>
-        
+
         <footer>
             <div class="container-fluid">
                 <div id="footer">
@@ -165,7 +131,7 @@
                                             <i class="fas fa-envelope mr-2"></i>Email us: dreamy55@gmail.com
                                         </div>
                                         <div class="col footerCol py-1 text-center">
-                                            <i class="fas fa-map-marker-alt mr-2"></i>Visit us at: <a href="https://g.page/golden-tulip-zira-belgrade?share" target="_blank" class="text-decoration-none colorWhite"> Zira, Belgrade</a> 
+                                            <i class="fas fa-map-marker-alt mr-2"></i>Visit us at: <a href="https://g.page/golden-tulip-zira-belgrade?share" target="_blank" class="text-decoration-none colorWhite"> Zira, Belgrade</a>
                                         </div>
                             </div>
                         </div>
@@ -193,7 +159,6 @@
                             <h6 class="font-weight-bold">Copyright &copy; Dreamy| Furniture shop</h6>
                         </div>
                     </div>
-                    <!-- <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button> -->
                 </div>
             </div>
         </footer>

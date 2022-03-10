@@ -9,7 +9,7 @@
     </head>
     <body>
         <header>
-            <div class="container">
+            <div class="container ">
                 <nav class="navbar navbar-expand-lg navbar-light">
                     <a class="navbar-brand" href="index.html"><img alt="logo" src="img/logo1.png"/></a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
@@ -31,41 +31,7 @@
           <hr/>
         </div>
         
-        <div class="container-fluid my-4">
-          <div class="row mx-4 text-right">
-            <div class="col-12 col-md-3 text-right">
-              <label class="font-weight-bold sortC">Sort by price</label>
-              <select name="priceSort" class="fontS" id="priceSort">
-                <option value="">Choose</option>
-                <option value="desc">Price descending</option>
-                <option value="asc">Price growing</option>
-              </select>
-            </div>
-            <div class="col-12 col-md-3 text-left">
-              <label class="sortC font-weight-bold">Show dicsounts</label>
-              <select name="discountFilter" class="fontS" id="discountFilter">
-                <option value="0">Choose</option>
-                <option value="1">Discount Week</option>
-                <option value="2">Spring Cleaning</option>
-                <option value="3">Holiday discount</option>
-              </select>
-            </div>
-            <div class="col-12 col-md-2 text-left">
-              <label class="sortC font-weight-bold">View</label>
-              <i class="fas fa-th-large fontIS mx-3 colV"  data-value="2"></i>
-              <i class="fas fa-th fontIS colV"  data-value="3"></i>
-            </div>
-            <div class="col-12 col-md-2 text-left">
-              <form class="form-inline">
-                <input type="search" name="text" id="find" placeholder="Search by model.."/>
-              </form>
-            </div>
-            <div class="col-12 col-md-2">
-              <li class="list-inline-item colorA fontS"><i class="fas fa-ban" id="removeFilter"></i></li>
-              <li class="list-inline-item fontS colorA font-weight-bold font-italic">Remove all filters</li>
-            </div>
-          </div>
-        </div>
+        
         <div class="container-fluid">
             <div class="row">
               <div class="col-2">
@@ -90,6 +56,46 @@
                         </ul>
                       </li>
                     </ul>
+                  </div>
+                  <div class="col mb-3">
+                    <label class="font-weight-bold sortC">Sort by price</label>
+                    <select name="priceSort" class="fontS" id="priceSort">
+                      <option value="">Choose</option>
+                      <option value="desc">Price descending</option>
+                      <option value="asc">Price growing</option>
+                    </select>
+                  </div>
+                  <div class="col mb-3">
+                    <label class="font-weight-bold sortC">Sort by name</label>
+                    <select name="nameSort" class="fontS" id="nameSort">
+                      <option value="">Choose</option>
+                      <option value="desc">Name descending</option>
+                      <option value="asc">Name growing</option>
+                    </select>
+                  </div>
+                  <div class="col mb-3">
+                    <label class="sortC font-weight-bold">Show dicsounts</label>
+                    <select name="discountFilter" class="fontS" id="discountFilter">
+                      <option value="0">Choose</option>
+                      <option value="1">Discount Week</option>
+                      <option value="2">Spring Cleaning</option>
+                      <option value="3">Holiday discount</option>
+                    </select>
+                  </div>
+                  <div class="col mb-3">
+                    <label class="sortC font-weight-bold">View</label>
+                    <i class="fas fa-th-large fontIS mx-1 colV"  data-value="2"></i>
+                    <i class="fas fa-th fontIS colV"  data-value="3"></i>
+                  </div>
+                  <div class="col mb-3">
+                    <form class="form-inline">
+                      <input type="search" name="text" id="find" placeholder="Search by model.."/>
+                    </form>
+                  </div>
+                  <div class="col">
+                    <label class="sortC font-weight-bold mr-1">Remove all filters</label>
+                    <li class="list-inline-item colorA fontS"><i class="fas fa-ban" id="removeFilter"></i></li>
+                   
                   </div>
               </div>
               <div class="col-10">

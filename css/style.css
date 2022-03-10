@@ -13,6 +13,7 @@
 }
 header{
     font-family: 'EB Garamond', serif;
+    
 }
 ul{
     list-style-type: none;
@@ -29,6 +30,7 @@ ul li a:hover{
     text-decoration: none;
     
 }
+
 #navigation{
     text-align: center;
     color:#7D4F50;
@@ -237,6 +239,14 @@ input[type=search]{
     width:60%;
 }
 
+.removeButton{
+    border: 1px solid #7D4F50;
+    border-radius: 5px 10px;
+    background-color: #ffff;
+    color: #839791;
+    font-weight: bold;
+    font-size: 17px;
+}
 
 @media screen and (max-width:769px){
     ul li{
