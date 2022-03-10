@@ -18,7 +18,7 @@ function getItem(name){
 }
 window.onload = function(){
    let url=window.location.pathname;
-   if(url=="/" || url=="/index.html"){
+   if(url=="/dreamy/" || url=="/dreamy/index.html"){
 
     ajaxCall("nav.json", function (data){
       navigationBar(data)
@@ -39,7 +39,7 @@ window.onload = function(){
     window.addEventListener("scroll", apperCard);
     }
 
-   if(url=="/products.html"){
+   if(url=="/dreamy/products.html"){
 
     ajaxCall("nav.json", function (data){
       navigationBar(data)
@@ -75,7 +75,7 @@ window.onload = function(){
 
     }
 
-    if(url=="/cart.html"){
+    if(url=="/dreamy/cart.html"){
 
       ajaxCall("nav.json", function (data){
         navigationBar(data)
@@ -97,7 +97,7 @@ window.onload = function(){
 
     }
 
-    if(url=="/author.html"){
+    if(url=="/dreamy/author.html"){
       ajaxCall("nav.json", function (data){
         navigationBar(data)
       });
