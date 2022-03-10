@@ -31,9 +31,9 @@
           <hr/>
         </div>
         
-        <div class="container-fluid">
+        <div class="container-fluid my-4">
           <div class="row mx-4 text-right">
-            <div class="col-4  text-right">
+            <div class="col-12 col-md-3 text-right">
               <label class="font-weight-bold sortC">Sort by price</label>
               <select name="priceSort" class="fontS" id="priceSort">
                 <option value="">Choose</option>
@@ -41,7 +41,7 @@
                 <option value="asc">Price growing</option>
               </select>
             </div>
-            <div class="col-4 text-left">
+            <div class="col-12 col-md-3 text-left">
               <label class="sortC font-weight-bold">Show dicsounts</label>
               <select name="discountFilter" class="fontS" id="discountFilter">
                 <option value="0">Choose</option>
@@ -50,15 +50,19 @@
                 <option value="3">Holiday discount</option>
               </select>
             </div>
-            <div class="col-2 text-left">
+            <div class="col-12 col-md-2 text-left">
               <label class="sortC font-weight-bold">View</label>
               <i class="fas fa-th-large fontIS mx-3 colV"  data-value="2"></i>
               <i class="fas fa-th fontIS colV"  data-value="3"></i>
             </div>
-            <div class="co-4 text-left">
+            <div class="col-12 col-md-2 text-left">
               <form class="form-inline">
                 <input type="search" name="text" id="find" placeholder="Search by model.."/>
               </form>
+            </div>
+            <div class="col-12 col-md-2">
+              <li class="list-inline-item colorA fontS"><i class="fas fa-ban" id="removeFilter"></i></li>
+              <li class="list-inline-item fontS colorA font-weight-bold font-italic">Remove all filters</li>
             </div>
           </div>
         </div>

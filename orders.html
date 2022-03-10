@@ -6,6 +6,7 @@
         <script src="https://kit.fontawesome.com/ce9a3cdf18.js" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
         <link type="text/css" rel="stylesheet" href="css/style.css"/>
+        <a href="https://icons8.com/icon/vy9QfEGutlBU/buying"></a>
     </head>
     <body>
         <header>
@@ -27,30 +28,34 @@
                   </nav>
             </div>
         </header>
-        <div class="container">
+        <div class="container-fluid border-top">
             <div class="row">
-                <div class="col">
+                <div class="col-12 col-lg-4 py-5 px-5">
                     <div id="porudzbina">
-                        <h3 class="font-weight-bold font-italic">Your order</h3>
+                        <h3 class="font-weight-bold font-italic text-center mb-3 colorA">Your order</h3>
                         <form method="GET" action="#" name="forma1">
                             <div class="form-group" id="inputName">
-                                <label for="flName">First name and last name: *</label>
-                                <input type="text" name="flName" id="flName" placeholder="Petar Petrović"/>
-                                <p></p>
+                                <label class="font-weight-bold colorA fontS" for="flName">First name and last name: *</label>
+                                <input type="text" name="flName" id="flName" class="form-control" placeholder="Petar Petrović"/>
+                                <div class="invalid-feedback">
+                                    Please choose a username.
+                                  </div>
                             </div>
                             <div class="form-group" id="inputAdress">
-                                <label for="adress">Adress: *</label>
-                                <input type="text" name="adress" id="adress"  placeholder="Dimitrija Tucovića 12, Beograd 11000"/>
+                                <label class="font-weight-bold colorA fontS" for="adress">Adress: *</label>
+                                <input type="text" name="adress" id="adress" class="form-control" placeholder="Dimitrija Tucovića 12, Beograd 11000"/>
                                 <p></p>
                             </div>
                             <div class="form-group" id="inputNumber">
-                                <label for="phoneNumber">Phone number: *</label>
-                                <input type="text" name="phoneNumber" id="phoneNumber"  placeholder="06xxxxxxxx"/>
-                                <p></p>
+                                <label class="font-weight-bold colorA fontS" for="phoneNumber">Phone number: *</label>
+                                <input type="text" name="phoneNumber" id="phoneNumber" class="form-control" placeholder="06xxxxxxxx"/>
+                                <div class="valid-tooltip">
+                                    Looks good!
+                                  </div>
                             </div>
                             <div  class="form-group" id="inputPayment">
-                                <label for="payment">Payment: *</label><br/>
-                                <select>
+                                <label class="font-weight-bold colorA fontS" for="payment">Payment: *</label><br/>
+                                <select class="form-control">
                                     <option value="0">Chosee payment</option>
                                     <option value="cash">Cash</option>
                                     <option value="creditCard">Credit card</option>
@@ -58,22 +63,92 @@
                                 <p></p>
                             </div>
                             <div  class="form-group" id="inputDelivery">
-                                <label for="delivery">Delivery: *</label><br/>
+                                <label class="font-weight-bold colorA fontS" for="delivery">Delivery: *</label><br/>
                                 <input type="radio" name="delivery" id="adress" value="adress"> Home adress &nbsp;
                                 <input type="radio" name="delivery" id="postOffice" value="postOffice"> The post office
                                 <p></p>
                             </div>
                             
-                            <div class="form-group">
-                                <input type="button" id="poruci" value="PORUČI" onClick="provera()"/>
-                                <p></p>
-                            </div>
+                            <!-- Button trigger modal -->   
+                                <button type="button" class="btn bcGreen colorWhite py-2 px-3 font-weight-bold" data-toggle="modal" data-target="#exampleModal">
+                                    Submit
+                                </button>
+  
+                                <!-- Modal -->
+                                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">Purchase made</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                        </div>
+                                        <div class="modal-body">
+                                        ...
+                                        </div>
+                                        <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                        </div>
+                                    </div>
+                                    </div>
+                                </div>
                         </form>
                     </div>
                     
                 </div>
-                <div class="col">
-                    <h3 class="font-weight-bold font-italic">Cart status</h3>
+                <div class="col-12 col-lg-4 py-5">
+                    <h3 class="font-weight-bold font-italic text-center colorA">Cart status</h3>
+                    <div id="cartStatus">
+                        <!-- <div class="row">
+                            <div class="col text-center">
+                                <p>Product</p>
+                            </div>
+                            <div class="col text-center">
+                                <p>Name</p>
+                            </div>
+                            <div class="col text-center">
+                                <p>Quantity</p>
+                            </div>
+                            <div class="col text-center">
+                                <p>Price</p>
+                            </div>
+                            <div class="col text-center">
+                                <p></p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col text-center">
+                                <p>Slika</p>
+                            </div>
+                            <div class="col text-center">
+                                <p>Fotelja</p>
+                            </div>
+                            <div class="col text-center">
+                                <input type="number" name="quantity" min="0" class="widthNum text-center"/>
+                            </div>
+                            <div class="col text-center">
+                                <p>1234</p>
+                            </div>
+                            <div class="col text-center">
+                                <button>Remove</button>
+                            </div>
+                        </div> -->
+                    </div>
+                   
+                    <div class="row my-4">
+                        <div class="col-6 text-center">
+                            <p>Ukuna cena</p>
+                        </div>
+                        <div class="col-6 text-center">
+                            <p>Ukloni sve iz korpe</p>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-12  col-lg-4 py-5" id="cart">
+                    <img src="img/flat-design-g85fbe6512_640.png"/>
+                   
                 </div>
             </div>
         </div>

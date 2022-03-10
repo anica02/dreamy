@@ -215,11 +215,26 @@ input[type=search]{
     color:#7D4F50;
     
 }
+.colorGreen{
+    color:#839791;
+}
 .fontSI{
     font-size:25px
 }
 #socialN a:hover{
     color:#839791;
+}
+#cart{
+    width:30%;
+}
+#cart img{
+    width: 70%;
+}
+.bcGreen{
+    background-color:#839791
+}
+.widthNum{
+    width:60%;
 }
 
 

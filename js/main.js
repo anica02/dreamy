@@ -1,4 +1,5 @@
 let categories, colors, discounts;
+let filterNumber=0;
 function ajaxCall(fileName,outcome){
     $.ajax({
         url:"json/"+fileName,
@@ -10,9 +11,10 @@ function ajaxCall(fileName,outcome){
         }
     });
 }
+
 window.onload = function(){
    let url=window.location.pathname;
-   if(url=="/" || url=="/index.html"){
+   if(url=="/dreamy/" || url=="/dreamy/index.html"){
     ajaxCall("nav.json", function (data){
       navigationBar(data)
     });
@@ -28,10 +30,11 @@ window.onload = function(){
     })
     window.addEventListener("scroll", apperCard);
 
-     
+
+
     }
 
-   if(url=="/products.html"){
+   if(url=="/dreamy/products.html"){
     ajaxCall("nav.json", function (data){
       navigationBar(data)
     });
@@ -46,37 +49,44 @@ window.onload = function(){
     ajaxCall("discounts.json",function(data){
       discounts=data;
     });
-    
+
     ajaxCall("products.json", function (data){
       localStorage.setItem("products",JSON.stringify(data));
       productsHtml(data)
-     
+
     });
     ajaxCall("socialNetworks.json", function(data){
       socialNetHtml(data);
     })
-    
-    $("#priceSort").change(sortByPrice);
-    $("#discountFilter").change(filterByDiscount);
-    $(".radioS").change(stockCheck);
-    $("#find").blur(modelSearch);
-    
+
+
+    $("#priceSort").change(allFilters);
+    $("#discountFilter").change(allFilters);
+    $(".radioS").change(allFilters);
+    $("#find").blur(allFilters);
+    $("#removeFilter").click(removeAll);
+
+
     }
-    if(url=="/orders.html"){
+
+    if(url=="/dreamy/orders.html"){
       ajaxCall("nav.json", function (data){
         navigationBar(data)
       });
       ajaxCall("socialNetworks.json", function(data){
         socialNetHtml(data);
       })
+
+
     }
-    if(url=="/author.html"){
+    if(url=="/dreamy/author.html"){
       ajaxCall("nav.json", function (data){
         navigationBar(data)
       });
       ajaxCall("socialNetworks.json", function(data){
         socialNetHtml(data);
       })
+
     }
 
 }
@@ -91,26 +101,31 @@ function roomsImg(data){
   }
   $("#room").html(html);
 }
+
 function productCardDes(data){
   let html="";
-  for(let soc of data){
+  for(let card of data){
     html+=`
           <div class="row top-margin borderCards cardP">
             <div class="col-sm-4 border-right">
-              <img src="img/${soc.img.src}" alt="${soc.img.alt}" class="w-100"/>
+              <img src="img/${card.img.src}" alt="${card.img.alt}" class="w-100"/>
             </div>
             <div class="col-sm-8">
               <div class="description  text-left">
-                <h3 class="font-italic text-center">${soc.title}</h3>
-                <h4 class="mt-4">${soc.description.h4}</h4>
-                <h5 class="mt-4">${soc.description.h5}</h5>
-                <a class="btn dugme mt-4" data-id="${soc.id}" href="products">View more</a>
+                <h3 class="font-italic text-center">${card.title}</h3>
+                <h4 class="mt-4">${card.description.h4}</h4>
+                <h5 class="mt-4">${card.description.h5}</h5>
+                <button class="btn dugme mt-4 checkedCat data-id="${card.id}"> View more</button>
+
+
               </div>
             </div>
-          </div>
-    `;
+          </div>`;
   }
   $("#productDes").html(html);
+  $('.checkedCat').click(filterProdChek);
+
+  //<a class="btn dugme mt-4 checked" data-id="${card.id}" href="products.html">View more</a>
 }
 function socialNetHtml(data){
   let html="";
@@ -119,28 +134,31 @@ function socialNetHtml(data){
   }
   $('#socialN').html(html);
 }
+
 function fetchCategories(data){
   let html="";
   let divCategories=document.getElementById("categories");
   for(let cat of data){
       html+=`<li class="list-group-item borderLi">
-                  <input type="checkbox" value="${cat.id}" name="chCat" class="chCat" id="${cat.id}"> ${cat.name}
+                  <input type="checkbox" value="${cat.id}" name="chCat${cat.id}" class="chCat" id="${cat.id}"> ${cat.name}
              </li>`
   }
   divCategories.innerHTML=html;
 
-  $(".chCat").change(filterCategories);
- 
+  $(".chCat").change(allFilters);
+
 }
+
 function fetchColors(data){
   let html="";
   let divColors=document.getElementById("colors");
   for(let col of data){
       html+=`<li class="list-group-item borderLi">
-                  <input type="checkbox" value="${col.name}" name="chCol${col.id}" id="chCol${col.id}"> ${col.name}
+                  <input type="checkbox" value="${col.id}" name="chCol${col.id}" class="chCol" id="chCol${col.id}"> ${col.name}
              </li>`
   }
   divColors.innerHTML=html;
+  $(".chCol").change(allFilters);
 }
 
 
@@ -170,43 +188,51 @@ function apperCard(){
   }
 }
 function productsHtml(data){
-  
+
   let html="";
   let divProducts=document.getElementById("products");
+  data=sortByPrice(data);
+  data=filterByDiscount(data);
+  data=stockCheck(data);
+  data=modelSearch(data);
+  data=filterCategories(data);
+  data=filterColors(data);
+
   if(data.length==0){
     html=`<div class="col-12">
-            <p class="alert-danger">Trenutno nema proizvoda</p>
+            <p class="alert-danger my-5 text-center py-2 font-weight-bold">No products were found</p>
           </div>`;
   }
   else{
     for(let product of data){
-      html+=`<div class="col-12  col-md-6 col-lg-3 product">
+      html+=`<div class="col-sm-12 col-md-6 col-lg-3 product">
          <div class="card my-5 py-3 px-4 text-center cardWidth">
             <div>
               ${addDiscount(product.discountId)}
             </div>
-        
+
             <img src="../img/${product.img.src}" class="card-img-top " alt="${product.img.alt}">
              <div class="card-body text-left">
                 <h4 class="card-title">${product.name}</h4>
                 <h5 class="card-text">${productPrice(product.price)}</h5>
                 <h6 class="card-text">${addData(product.colorId, colors)} / ${addData(product.categoryId, categories)}</h6>
-                <button type="button" class="btn btnCart">
+                <button type="button" class="btn btnCart" data-id="${product.id}">
                   PURCHASE
                 </button>
                 <div class="text-right">
                     ${productStatus(product.supplies)}
                 </div>
-                
+
               </div>
-          </div>  
+          </div>
      </div>`;
   }
-  
+
   }
   divProducts.innerHTML=html;
+  $(".btnCart").click(addToCart);
 
- 
+
 }
 
 function addDiscount(disId){
@@ -219,7 +245,7 @@ if(disId!=null){
       </div>`;
     }
   }
-  
+
 }else{
   html=`<div class="text-left pl-2">
    </div>`;
@@ -258,95 +284,115 @@ function productStatus(status){
   }
 }
 
-function filterCategories(){
+function filterCategories(data){
 
-  let product= JSON.parse(localStorage.getItem('products'));
+
   let catArray=[];
      $('.chCat:checked').each(function (){
         catArray.push(parseInt($(this).val()));
      })
-    
+
      if(catArray.length!=0){
-       let filtrirano;
-       for(let cat of catArray){
-          filtrirano = product.filter(x=>x.categoryId==cat);
-          
-       }
-  
-       return productsHtml(filtrirano);
+      return data.filter((item) => catArray.includes(item.categoryId));
+
+
      }
-     return productsHtml(product);
+     return data;
 
-}//Ovo da sredis!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!//
-
-
-function sortByPrice(){
-let product= JSON.parse(localStorage.getItem('products'));
-let sortType= document.getElementById("priceSort").value;
-    if(sortType == 'asc'){
-    product.sort((a,b) => a.price.active > b.price.active? 1 : -1);
-    return productsHtml(product);
-    }
-    else if(sortType == 'desc'){
-      product.sort((a,b) => a.price.active < b.price.active ? 1 : -1);
-      return productsHtml(product);
-    }
-    else{
-      return productsHtml(product);
-    }
-
-}//Ovo je sredjeno
-
-function filterByDiscount(){
-let product= JSON.parse(localStorage.getItem('products'));
-let filterType= document.getElementById("discountFilter").value;
-
-if(filterType!=0){
-  filtrirano=product.filter(x=>x.discountId==filterType);
-  return productsHtml(filtrirano);
-}
-  return productsHtml(product);
 }//ovo je sredjeno
 
 
-function stockCheck(){
-let product = JSON.parse(localStorage.getItem('products'));
+function filterColors(data){
+
+
+  let catArray=[];
+     $('.chCol:checked').each(function (){
+        catArray.push(parseInt($(this).val()));
+     })
+
+     if(catArray.length!=0){
+       return data.filter((item) => catArray.includes(item.colorId));
+
+
+     }
+     return data;
+
+}//ovo je sredjeno
+
+function sortByPrice(data){
+
+let sortType= document.getElementById("priceSort").value;
+    if(sortType == 'asc'){
+    return data.sort((a,b) => a.price.active > b.price.active? 1 : -1);
+
+    }
+    else if(sortType == 'desc'){
+      return data.sort((a,b) => a.price.active < b.price.active ? 1 : -1);
+
+    }
+    else{
+      return data;
+    }
+
+
+}//Ovo je sredjeno
+
+function filterByDiscount(data){
+
+let filterType= document.getElementById("discountFilter").value;
+
+if(filterType!=0){
+ return data.filter(x=>x.discountId==filterType);
+
+}
+  return data;
+}//ovo je sredjeno
+
+
+function stockCheck(data){
+
 let filterStock = document.getElementsByName('radioS');
 
 for(let fil in filterStock){
   if(filterStock[fil].checked && filterStock[fil].value=="inStock"){
-   let filtered = product.filter(x => x.supplies);
-   return productsHtml(filtered);
-   
+   return data.filter(x => x.supplies);
+
+
  }
  else if(filterStock[fil].checked && filterStock[fil].value=="outOfStock"){
-    let filtered = product.filter(x =>x.supplies==false);
-    return productsHtml(filtered);
+    return data.filter(x =>x.supplies==false);
+
  }
 }
-return productsHtml(product);
+return data;
 }//ovo je sredjeno
 
 
-function modelSearch(){
+function modelSearch(data){
  let model= document.getElementById("find").value;
- let product = JSON.parse(localStorage.getItem('products'));
 
- let filter = product.filter(function(el){
-   if(el.name.toUpperCase().indexOf(model.trim().toUpperCase())!=-1){
-      return el;
-      
-   }
- });
+  if(model){
+    return data.filter(function(el){
+      if(el.name.toUpperCase().indexOf(model.trim().toUpperCase())!=-1){
+         return el;
 
- return productsHtml(filter);
+     }
+   });
+  }
+  else{
+      return data;
+  }
+
+
+
 }//ovo je sredjeno
- 
+
 $('.colV').click(changeView);
+
 function changeView(){
   var products=document.querySelectorAll('.product');
 
- 
+
     if($(this).data('value')==2){
        for(let i=0;i<products.length;i++){
         products[i].classList.remove("col-lg-3", "col-lg-4");
@@ -359,15 +405,36 @@ function changeView(){
         products[i].classList.add("col-lg-4");
       }
     }
-    
-    
-    
-}
-  
-    
-  
+    else{
+      let product = JSON.parse(localStorage.getItem('products'));
+      productsHtml(product);
+    }
 
- 
+
+}//ovo je sredjeno
+
+function allFilters(){
+  let product = JSON.parse(localStorage.getItem('products'));
+    productsHtml(product);
+}//ovo je sredjeno
+
+function removeAll(){
+  $("#priceSort").val("");
+  $("#discountFilter").val(0);
+  $("#find").val(null);
+  $("input[type=radio][name=radioS]").prop('checked', false);
+  $('.chCat').prop('checked', false);
+  $('.chCol').prop('checked', false);
+  var products=document.querySelectorAll('.product');
+  for(let i=0;i<products.length;i++){
+    products[i].classList.remove("col-lg-5"||"col-lg-4");
+  }
+
+  let product = JSON.parse(localStorage.getItem('products'));
+  productsHtml(product);
+}//ovo je sredjeno
+
+
 $(document).ready(function(){
   $('#filterP ul > li ul')
     .click(function(e){
@@ -375,7 +442,7 @@ $(document).ready(function(){
     })
     .filter(':not(:first)')
     .hide();
-    
+
   $('#filterP ul > li').click(function(){
     var selfClick = $(this).find('ul:first').is(':visible');
     if(!selfClick) {
@@ -384,11 +451,47 @@ $(document).ready(function(){
         .find('> li ul:visible')
         .slideToggle();
     }
-    
+
     $(this)
       .find('ul:first')
       .stop(true, true)
       .slideToggle();
   });
 });
+
+function filterProdChek(){
+  location.href = 'products.html';
+
+
+}
+
+//KORPA
+
+function addToCart(){
+   let idProduct=$(this).data('id');
+   let cartP = JSON.parse(localStorage.getItem("cart"));
+
+   if(cartP){
+      if(existingProduct()){
+        updateCart();
+      }
+      else{
+        addNewProduct();
+      }
+   }else{
+     addProduct();
+   }
+
+   function addProduct(){
+      let proizvod=[];
+   }
+   function existingProduct(){
+     return cartP.filter(p=>p.id==idProduct.length);
+   }
+
+   
+}
+
+
+
 
