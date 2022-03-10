@@ -18,7 +18,7 @@ function getItem(name){
 }
 window.onload = function(){
    let url=window.location.pathname;
-   if(url=="/dreamy/" || url=="/dreamy/index.html"){
+   if(url=="/" || url=="/index.html"){
 
     ajaxCall("nav.json", function (data){
       navigationBar(data)
@@ -39,7 +39,7 @@ window.onload = function(){
     window.addEventListener("scroll", apperCard);
     }
 
-   if(url=="/dreamy/products.html"){
+   if(url=="/products.html"){
 
     ajaxCall("nav.json", function (data){
       navigationBar(data)
@@ -75,7 +75,7 @@ window.onload = function(){
 
     }
 
-    if(url=="/dreamy/orders.html"){
+    if(url=="/cart.html"){
 
       ajaxCall("nav.json", function (data){
         navigationBar(data)
@@ -97,7 +97,7 @@ window.onload = function(){
 
     }
 
-    if(url=="/dreamy/author.html"){
+    if(url=="/author.html"){
       ajaxCall("nav.json", function (data){
         navigationBar(data)
       });
@@ -113,7 +113,7 @@ function roomsImg(data){
   let html="";
 
   for(let img of data){
-    html+=`<div class="col">
+    html+=`<div class="col-12 col-sm-6 col-lg-3 mb-3">
             <div class="card bg-dark text-white cardRoom">
               <img src="img/${img.img.src}" class="card-img"  alt="${img.img.alt}">
             </div>
@@ -126,16 +126,16 @@ function productCardDes(data){
   let html="";
   for(let card of data){
     html+=`
-          <div class="row top-margin borderCards cardP">
+          <div class="row top-margin borderCards cardP col-12 ml-1">
             <div class="col-sm-4 border-right">
               <img src="img/${card.img.src}" alt="${card.img.alt}" class="w-100"/>
             </div>
             <div class="col-sm-8">
-              <div class="description  text-left">
+              <div class="description text-left">
                 <h3 class="font-italic text-center">${card.title}</h3>
                 <h4 class="mt-4">${card.description.h4}</h4>
                 <h5 class="mt-4">${card.description.h5}</h5>
-                <a class="btn dugme mt-4" href="products.html">View more</a>
+                <a class="btn dugme colorMint mt-4" href="products.html">View more</a>
               </div>
             </div>
           </div>`;
@@ -149,7 +149,7 @@ function socialNetHtml(data){
   let html="";
 
   for(let soc of data){
-    html+=`<a href="${soc.href}" target="_blank" class="colorA fontSI mr-2"><i class="${soc.icon}"></i></a>`
+    html+=`<a href="${soc.href}" target="_blank" class="colorRottenCherry fontSI mr-2"><i class="${soc.icon}"></i></a>`
   }
 
   $('#socialN').html(html);
@@ -199,7 +199,7 @@ function apperCard(){
   for(let i=0; i<pojava.length; i++){
       let visinaProzora = window.innerHeight;
       let pojavaGornja = pojava[i].getBoundingClientRect().top;
-      let pojavaTacka = 200;
+      let pojavaTacka = 30;
 
       if(pojavaGornja < visinaProzora - pojavaTacka){
           pojava[i].classList.add('active');
@@ -228,7 +228,7 @@ function productsHtml(data){
   }
   else{
     for(let product of data){
-      html+=`<div class="col-6  col-lg-4 col-xl-3 product">
+      html+=`<div class="col-12 col-sm-6  col-lg-4 col-xl-3 product">
          <div class="card mb-5 py-3 px-4 text-center cardWidth">
             <div>
               ${addDiscount(product.discountId)}
@@ -239,11 +239,8 @@ function productsHtml(data){
                 <h4 class="card-title">${product.name}</h4>
                 <h5 class="card-text">${productPrice(product.price)}</h5>
                 <h6 class="card-text">${addData(product.colorId, colors)} / ${addData(product.categoryId, categories)}</h6>
-                <button type="button" class="btn btnCart" data-id="${product.id}">
-                  PURCHASE
-                </button>
-                <div class="text-right">
-                    ${productStatus(product.supplies)}
+                <div>
+                    ${productStatus(product.supplies, product.id)}
                 </div>
 
               </div>
@@ -274,6 +271,7 @@ function addDiscount(disId){
   return html;
 }
 
+
 function addData(id,array){
 
   let html="";
@@ -299,13 +297,16 @@ function productPrice(price){
   return html;
 }
 
-function productStatus(status){
+function productStatus(status,id){
 
   if(status){
-     return `<p class="card-text inStock"><i class="fas fa-check-circle"></i> In stock</p>`;
+     return `<button type="button" class="btn btnCart colorMint font-weight-bold" data-id="${id}">
+              PURCHASE
+              </button>
+            <p class="card-text inStock text-right"><i class="fas fa-check-circle"></i> In stock</p>`;
   }
   else{
-    return `<p class="card-text outStock"><i class="fas fa-times-circle"></i> Out of stock</p>`
+    return `<p class="card-text outStock  text-right"><i class="fas fa-times-circle"></i> Out of stock</p>`
   }
 }
 
@@ -352,7 +353,7 @@ function sortByName(data){
   let sortType= document.getElementById("nameSort").value;
   if(sortType!=""){
     data.sort(function (a,b){
-     if(sortType=="asc"){
+     if(sortType=="a"){
       if(a.name>b.name){
         return -1;
       }
@@ -377,7 +378,7 @@ function sortByName(data){
     });
        return data;
   }
-    return data;
+     return data;
 }
 
 function filterByDiscount(data){
@@ -389,8 +390,7 @@ function filterByDiscount(data){
   }
   return data;
 
-}//DOBAR
-
+}
 
 function stockCheck(data){
 
@@ -406,7 +406,7 @@ function stockCheck(data){
     }
   }
   return data;
-}//DOBAR
+}
 
 
 function modelSearch(data){
@@ -425,7 +425,7 @@ function modelSearch(data){
     return data;
   }
 
-}//DOBAR
+}
 
 $('.colV').click(changeView);
 
@@ -452,14 +452,14 @@ function changeView(){
       productsHtml(product);
   }
 
-}//DOBAR
+}
 
 function allFilters(){
 
   let product = getItem('products');
   productsHtml(product);
 
-}//DOBAR
+}
 
 function removeAll(){
   $("#priceSort").val("");
@@ -475,7 +475,7 @@ function removeAll(){
   }
   let product = getItem('products');
   productsHtml(product);
-}//DOBAR
+}
 
 
 $(document).ready(function(){
@@ -500,11 +500,9 @@ $(document).ready(function(){
       .stop(true, true)
       .slideToggle();
   });
-});//DOBAR
+});
 
-
-
-//KORPA
+//CART
 
 function addToCart(){
    let idProduct=$(this).data('id');
@@ -654,7 +652,7 @@ function remove(id){
    cartLenght();
 }
 
-function removeAll(){
+function removeAllFromCart(){
   localStorage.removeItem('cart');
   emptyCart();
   cartLenght();
@@ -666,7 +664,7 @@ function removeAll(){
 function submitPurches(){
 
   var name,adress, number, payment, delivery;
-  var valueName, valueAdress, valueNumber, total;
+  var valueName, valueAdress, valueNumber;
   nizPodaci = [];
   name = document.querySelector("#flName");
   valueName = name.value;
@@ -697,7 +695,7 @@ function submitPurches(){
   let reAdress=/^[A-ZČĆŠĐŽ]{1}[a-zčćšđž]{2,15}(\s[A-ZČĆŠĐŽ]{1}[a-zčćšđž]{0,15})*\s[\d]{1,5}(\s[A-ZČĆŠĐŽ]{1}[a-zčćšđž]{2,15})*,(\s[A-ZČĆŠĐŽ]{1}[a-zčćšđž]{2,10})+\s[\d]{5}$/;
 
   if(reAdress.test(valueAdress)){
-    document.querySelector("#inputAdress > div").innerHTML = `<p class="text-success"><i class="far fa-check-circle  "></i></p>`;
+    document.querySelector("#inputAdress > div").innerHTML = `<p class="text-success"><i class="far fa-check-circle"></i></p>`;
     
   }
   else{
@@ -741,24 +739,33 @@ function submitPurches(){
       break;
     }
   }
-  if(value==" "){
+ 
+  
+  if(value!=" "){
+    document.querySelector("#inputDelivery > div").innerHTML =`<p class="text-success"><i class="far fa-check-circle"></i></p>`;
+  }
+  else{
+    
     document.querySelector("#inputDelivery > div").innerHTML = `<p class="text-danger"><i class="fas fa-exclamation-circle  "></i>You must select a delivery method</p>`;
     errors++;
   }
-  else{
-    document.querySelector("#inputDelivery > idv").innerHTML =`<p class=" text-success"><i class="far fa-check-circle"></i></p>`;
-  }
 
   //chechCart
-  totla=$("#totalPrice").val();
-   let errorMessage =`<p class="text-danger"><i class="fas fa-exclamation-circle "></i> Your cart is empty, add products so you can purchase them</p>`;
-  if(total==null){
+  let cart = getItem('cart');
+  let button =document.querySelector(".modalBtn");
+  let errorMessage =`<p class="text-danger"><i class="fas fa-exclamation-circle "></i> Your cart is empty, add products so you can purchase them</p>`;
+  if(cart==null){
    errors++;
+   button.removeAttribute("data-toggle");
+   button.removeAttribute("data-target");
     $("#cartError").html(errorMessage);
   }
   else{
-    console.log("Moze");
+    if(errors==0){
+      button.setAttribute("data-toggle","modal");
+      button.setAttribute("data-target","#exampleModal");
+      
+    }
+    removeAllFromCart();
   }
-
-  
 }

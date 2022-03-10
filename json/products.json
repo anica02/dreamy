@@ -139,7 +139,7 @@
         "name":"ASTRID",
         "categoryId":1,
         "img":{
-            "src":"Lamp3.png",
+            "src":"lamp3.png",
             "alt":"Lamp 3"
         },
         "discountId":1,

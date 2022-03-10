@@ -1,15 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Akaya+Telivigala&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Serif:wght@300&display=swap');
+
 @import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital@1&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=EB+Garamond&display=swap');
 *{
     margin:0px;
     padding:0px;
-   
-    /*font-family: 'Roboto Serif', sans-serif;*/
-    /*font-family: 'Akaya Telivigala', cursive;*/
     font-family: 'EB Garamond', serif;
-
 }
 header{
     font-family: 'EB Garamond', serif;
@@ -18,59 +13,69 @@ header{
 ul{
     list-style-type: none;
 }
+
 ul li{
     display: inline;
 }
+
 ul li a{
     font-size:25px;
     color:#7D4F50 !important;
 }
+
 ul li a:hover{
     border-bottom: #839791 2px solid;
     text-decoration: none;
-    
 }
 
-#navigation{
-    text-align: center;
+.colorRottenCherry{
     color:#7D4F50;
 }
+.colorMint{
+    color:#839791;
+}
+.colorPink{
+    color:#CC8B86; 
+}
+.colorWhite{
+    color:#fff;
+}
+.font26{
+    font-size: 26px;
+}
+.font18{
+    font-size:18px;
+}
 #navigation i{
- display: none;
+    display: none;
 }
+
 #banner{
-    
- background-image: url("../img/living-room-g1b3b990f6_1280.jpg");
- background-size: cover;
- width: auto;
- height: 680px;
- border-radius: 5px;
- 
+    background-image: url("../img/living-room-g1b3b990f6_1280.jpg");
+    background-size: cover;
+    width: 100%;
+    height: 680px;
+    border-radius: 5px;
 }
+
 #motto{
-    
     width: 30%;
-    text-align: center;
     margin-top: 17%;
     margin-bottom: 3%;
     border: 2px solid #7D4F50;
     border-radius: 5px;
     background-color: #ffff;
     padding: 30px 10px;
-    color:#7D4F50;
 }
 
 #buttons-Links{
-    text-align: center;
     margin:1 auto;
 }
 .dugme{
     border: 1px solid #7D4F50;
     background-color: #ffff;
-    color: #839791;
     font-weight: bold;
     font-size: 20px;
-
 }
 .dugme:hover{
     color:#7D4F50;
@@ -79,8 +84,6 @@ ul li a:hover{
 .btnCart{
     border: 1px solid #7D4F50;
     background-color: #ffff;
-    color: #839791;
-    font-weight: bold;
     font-size: 15px;
 }
 .btnCart:hover{
@@ -88,7 +91,6 @@ ul li a:hover{
     box-shadow: 3px 4px #839791;
 }
 .description{
-    text-align: center;
     padding:2%;
     height: inherit;
 }
@@ -104,11 +106,7 @@ ul li a:hover{
     border-radius: 5px;
     padding: 2% 0;
 }
-#cart{
-    text-align: center;
-    color:#CC8B86;
-    
-}
+
 #cart span{
     font-size: 26px;
     border:1px solid #7D4F50;
@@ -125,30 +123,9 @@ ul li a:hover{
     border:2px solid #839791;
     border-radius: 20px 5px;
     border-style: outset;
-    padding: 2%;
-}
-.cardP{
-    position: relative;
-    transform: translateX(200px);
-    opacity: 0;
-    transition: all 2s ease;
-}
-.cardP.active{
-    transform: translateY(0px);
-    opacity: 1;
-}
-.apperText{
-    position: relative;
-    transform: translateY(100px);
-    opacity: 0;
-    transition: all 2s ease;
+    padding: 4% 2%;
 }
 
-.colorCh{
-    color:#7D4F50;
-    font-size: 22px;
-   
-}
 .borderLi{
     border-color: #839791;
     border-style: inset;
@@ -168,16 +145,7 @@ ul li a:hover{
     color:#fff; 
     border-radius:5px 10px;
 }
-.sortC{
-    color:#7D4F50;
-    font-size: 18px;
-}
-.fontS{
-    font-size:18px;
-}
-
 .filterC{
-   
     background-color:#AA998F;
     color:#fff;
     border-radius: 5px 10px;
@@ -193,7 +161,6 @@ input[type=search]{
 }
 .fontIS{
     font-size: 22px;
-    color: #839791;
 }
 .inStock{
     color:green;
@@ -203,22 +170,14 @@ input[type=search]{
     color:#ae2012;
     font-size: 17px;
 }
- 
+.fontSize{
+    font-size: 19px;
+}
 .footerCol{
     background-color:#839791;
     border-radius: 5px 10px;
     color:#fff;
     font-size: 18px;
-}
-.colorWhite{
-    color: #fff;
-}
-.colorA{
-    color:#7D4F50;
-    
-}
-.colorGreen{
-    color:#839791;
 }
 .fontSI{
     font-size:25px
@@ -238,14 +197,19 @@ input[type=search]{
 .widthNum{
     width:60%;
 }
-
 .removeButton{
     border: 1px solid #7D4F50;
     border-radius: 5px 10px;
     background-color: #ffff;
-    color: #839791;
     font-weight: bold;
     font-size: 17px;
+}
+#authorImg img{
+    border-radius: 10px 30px;
+}
+#authorText{
+    border-radius: 10px 30px;
+    border:3px solid #7D4F50;
 }
 
 @media screen and (max-width:769px){
@@ -254,5 +218,22 @@ input[type=search]{
     }
     #navigation i{
         display: block !important;
+    }
+
+}
+@media screen and (max-width:426px){
+    .centering{
+        font-size:20px;
+    }
+    #banner{
+        height: 300px;
+    }
+   
+    #motto h2{
+        font-size: 12px;
+        padding:0px;
+    }
+    .dugme{
+        font-size:14px;
     }
 }

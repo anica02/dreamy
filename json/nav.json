@@ -8,8 +8,8 @@
         "text":"Products"
     },
     {
-        "href":"orders.html",
-        "text":"Orders"
+        "href":"cart.html",
+        "text":"Cart"
     },
     {
         "href":"author.html",
