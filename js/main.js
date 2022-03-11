@@ -39,7 +39,7 @@ window.onload = function(){
    
     }
 
-   if(url=="/products.html"){
+   if(url=="/dreamy/products.html"){
 
     ajaxCall("nav.json", function (data){
       navigationBar(data)
