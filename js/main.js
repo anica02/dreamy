@@ -36,10 +36,10 @@ window.onload = function(){
       socialNetHtml(data);
     });
 
-    window.addEventListener("scroll", apperCard);
+   
     }
 
-   if(url=="/dreamy/products.html"){
+   if(url=="/products.html"){
 
     ajaxCall("nav.json", function (data){
       navigationBar(data)
@@ -200,9 +200,9 @@ function productsHtml(data){
   data=filterCategories(data);
   data=filterColors(data);
   data=filterByDiscount(data);
+  data=sortByPrice(data);
   data=sortByName(data);
   data=stockCheck(data);
-  data=sortByPrice(data);
   data=modelSearch(data);
   
   if(data.length==0){
