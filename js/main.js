@@ -23,7 +23,7 @@ window.onload = function(){
     ajaxCall("nav.json", function (data){
       navigationBar(data)
     });
-    cartLenght();
+    cartLength();
     ajaxCall("productDes.json", function(data){
       productCardDes(data);
     });
@@ -56,7 +56,7 @@ window.onload = function(){
             ajaxCall("products.json", function (data){
               setItem('products', data);
               productsHtml(data);
-              cartLenght();
+              cartLength();
               ajaxCall("socialNetworks.json", function(data){
                 socialNetHtml(data);
               })
@@ -80,7 +80,7 @@ window.onload = function(){
       ajaxCall("nav.json", function (data){
         navigationBar(data)
       });
-      cartLenght();
+      cartLength();
       let cartP = getItem('cart');
       getItem('products');
       if(cartP==null){
@@ -193,34 +193,18 @@ function navigationBar(data){
   divNav.innerHTML=html;
 }
 
-function apperCard(){
-  let pojava = document.querySelectorAll(".cardP");
-
-  for(let i=0; i<pojava.length; i++){
-      let visinaProzora = window.innerHeight;
-      let pojavaGornja = pojava[i].getBoundingClientRect().top;
-      let pojavaTacka = 30;
-
-      if(pojavaGornja < visinaProzora - pojavaTacka){
-          pojava[i].classList.add('active');
-      }
-      else{
-          pojava[i].classList.remove('active');
-      }
-  }
-}
 function productsHtml(data){
 
   let html="";
   let divProducts=document.getElementById("products");
-  data=sortByPrice(data);
-  data=sortByName(data);
-  data=filterByDiscount(data);
-  data=stockCheck(data);
-  data=modelSearch(data);
   data=filterCategories(data);
   data=filterColors(data);
-
+  data=filterByDiscount(data);
+  data=sortByName(data);
+  data=stockCheck(data);
+  data=sortByPrice(data);
+  data=modelSearch(data);
+  
   if(data.length==0){
     html=`<div class="col-12">
             <p class="alert-danger my-5 text-center py-2 font-weight-bold">No products were found</p>
@@ -320,7 +304,7 @@ function filterCategories(data){
      }
      return data;
 
-}//DOBAR
+}
 
 function filterColors(data){
   let catArray=[];
@@ -333,27 +317,26 @@ function filterColors(data){
      }
      return data;
 
-}//DOBAR
+}
 
 function sortByPrice(data){
-let sortType= document.getElementById("priceSort").value;
-    if(sortType == 'asc'){
+let sortTypeP= document.getElementById("priceSort").value;
+    if(sortTypeP == 'asc'){
     return data.sort((a,b) => a.price.active > b.price.active? 1 : -1);
 
     }
-    else if(sortType == 'desc'){
+    else if(sortTypeP == 'desc'){
       return data.sort((a,b) => a.price.active < b.price.active ? 1 : -1);
 
     }
-      return data;
+    return data;
 }
 
-
 function sortByName(data){
-  let sortType= document.getElementById("nameSort").value;
-  if(sortType!=""){
+  let sortTypeN= document.getElementById("nameSort").value;
+  if(sortTypeN!=""){
     data.sort(function (a,b){
-     if(sortType=="a"){
+     if(sortTypeN=="asc"){
       if(a.name>b.name){
         return -1;
       }
@@ -514,11 +497,11 @@ function addToCart(){
       }
       else{
         addNewProduct();
-        cartLenght();
+        cartLength();
       }
    }else{
      addProduct();
-     cartLenght();
+     cartLength();
    }
 
    function addProduct(){
@@ -556,7 +539,7 @@ function addToCart(){
 
 }
 
-function cartLenght(){
+function cartLength(){
       let cartP = getItem('cart');
       let numberP="";
 
@@ -649,19 +632,19 @@ function remove(id){
    let filter = product.filter(p=>p.id!=id);
    setItem('cart', filter);
    showCart();
-   cartLenght();
+   cartLength();
 }
 
 function removeAllFromCart(){
   localStorage.removeItem('cart');
   emptyCart();
-  cartLenght();
+  cartLength();
   $("#totalPrice").html("");
 }
 
 //FORM
 
-function submitPurches(){
+function submitPurchase(){
 
   var name,adress, number, payment, delivery;
   var valueName, valueAdress, valueNumber;

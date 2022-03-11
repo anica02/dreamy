@@ -13,13 +13,12 @@
     </head>
     <body>
         <header>
-            <div class="container ">
+            <div class="container">
                 <nav class="navbar navbar-expand-lg navbar-light">
                     <a class="navbar-brand" href="index.html"><img alt="logo" src="img/logo1.png"/></a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
                       <span class="navbar-toggler-icon"></span>
                     </button>
-                  
                     <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
                       <ul class="navbar-nav mr-auto mt-2 mt-lg-0 text-center colorRottenCherry" id="navigation">
                       </ul>
@@ -45,7 +44,7 @@
                         </ul>
                       </li>
                       <li>
-                        <h5 class="filterC py-1 pl-2  font-weight-bold pointer">Colors</h5>
+                        <h5 class="filterC py-1 pl-2 font-weight-bold pointer">Colors</h5>
                         <ul class="list-group mb-2 pointer" id="colors">
                         </ul>
                       </li>
@@ -59,7 +58,7 @@
                       </li>
                     </ul>
                   </div>
-                  <div class="col mb-3">
+                  <div class="col mb-3" id="priceHtml">
                     <label class="font-weight-bold font18 colorRottenCherry">Sort by price</label>
                     <select name="priceSort" class="font18" id="priceSort">
                       <option value="">Choose</option>
@@ -67,15 +66,15 @@
                       <option value="asc">Price growing</option>
                     </select>
                   </div>
-                  <div class="col mb-3">
+                  <div class="col mb-3" id="nameHtml">
                     <label class="font-weight-bold font18 colorRottenCherry">Sort by name</label>
                     <select name="nameSort" class="font18" id="nameSort">
                       <option value="">Choose</option>
-                      <option value="d">Name descending</option>
-                      <option value="a">Name growing</option>
+                      <option value="desc">Name descending</option>
+                      <option value="asc">Name growing</option>
                     </select>
                   </div>
-                  <div class="col mb-3">
+                  <div class="col mb-3" id="dicountHtml">
                     <label class="colorRottenCherry font18 font-weight-bold">Show dicsounts</label>
                     <select name="discountFilter" class="font18" id="discountFilter">
                       <option value="0">Choose</option>
@@ -86,8 +85,8 @@
                   </div>
                   <div class="col mb-3">
                     <label class="colorRottenCherry font18 font-weight-bold">View</label>
-                    <i class="fas fa-th-large fontIS mx-1 colorMint colV"  data-value="2"></i>
-                    <i class="fas fa-th fontIS colorMint colV"  data-value="3"></i>
+                    <i class="fas fa-th-large fontIS mx-1 colorMint colV" data-value="2"></i>
+                    <i class="fas fa-th fontIS colorMint colV" data-value="3"></i>
                   </div>
                   <div class="col mb-3">
                     <form class="form-inline">
@@ -96,38 +95,33 @@
                   </div>
                   <div class="col">
                     <label class="colorRottenCherry font-weight-bold mr-1" for="removeFilter">Remove all filters</label>
-                    <li class="list-inline-item  colorRottenCherry font18"><i class="fas fa-ban" id="removeFilter"></i></li>
-                   
+                    <li class="list-inline-item colorRottenCherry font18"><i class="fas fa-ban" id="removeFilter"></i></li>
                   </div>
               </div>
               <div class="col-12 col-sm-9 col-lg-10">
-                <div class="row " id="products">
-
+                <div class="row" id="products">
                 </div>
               </div>
             </div>
-           
          </div>
          <footer>
           <div class="container-fluid">
               <div id="footer">
-                      
-                          <div class="row mb-5 ">
-                                      <div class="col-12 col-sm-6 col-lg-3   mb-2  text-center">
-                                          <p class="footerCol py-1"><i class="fas fa-phone-alt "></i> Call us: +381 123 4567</p>
-                                      </div>
-                                      <div class="col-12 col-sm-6 col-lg-3  mb-2   text-center">
-                                          <p class="footerCol py-1"><i class="fas fa-envelope "></i> Email us: dreamy@gmail.com</p>
-                                      </div>
-                                      <div class="col-12 col-sm-6 col-lg-3   mb-2 text-center">
-                                          <p class="footerCol py-1"><i class="fas fa-map-marker-alt"></i> Visit us at: <a href="https://g.page/golden-tulip-zira-belgrade?share" target="_blank" class="text-decoration-none colorWhite"> Zira, Belgrade</a></p> 
-                                      </div>
-                                      <div class="col-12 col-sm-6 col-lg-3   mb-2 text-center">
-                                          <p class="footerCol py-1"></i> Dream big !</p>
-                                      </div>
-                          </div>
-                    
-                      <div class="row">
+                 <div class="row mb-5 ">
+                      <div class="col-12 col-sm-6 col-lg-3 mb-2 text-center">
+                          <p class="footerCol py-1"><i class="fas fa-phone-alt "></i> Call us: +381 123 4567</p>
+                      </div>
+                      <div class="col-12 col-sm-6 col-lg-3 mb-2 text-center">
+                          <p class="footerCol py-1"><i class="fas fa-envelope "></i> Email us: dreamy@gmail.com</p>
+                      </div>
+                       <div class="col-12 col-sm-6 col-lg-3 mb-2 text-center">
+                          <p class="footerCol py-1"><i class="fas fa-map-marker-alt"></i> Visit us at: <a href="https://g.page/golden-tulip-zira-belgrade?share" target="_blank" class="text-decoration-none colorWhite"> Zira, Belgrade</a></p> 
+                      </div>
+                      <div class="col-12 col-sm-6 col-lg-3 mb-2 text-center">
+                          <p class="footerCol py-1"></i> Dream big !</p>
+                      </div>
+                  </div>
+                  <div class="row">
                       <div class="col-12 col-sm-6 col-lg-3 text-center">
                           <img alt="logo" src="img/logo1.png"/>
                       </div>
@@ -135,18 +129,18 @@
                           <h4 class="font-italic font-weight-bold">About</h4>
                           <h5 class="font-weight-bold">Small business furniture shop</h5>
                       </div>
-                      <div class="col-12 col-sm-6 col-lg-3 text-center  colorRottenCherry">
+                      <div class="col-12 col-sm-6 col-lg-3 text-center colorRottenCherry">
                           <h4 class="font-italic font-weight-bold">Documentation</h4>
-                          <a href="#" target="_blank"  class=" colorRottenCherry font18"><i class="fas fa-file-alt"></i></a>
+                          <a href="Documentation/documentation.pdf" target="_blank"  class=" colorRottenCherry font18"><i class="fas fa-file-alt"></i></a>
                       </div>
-                      <div class="col-12 col-sm-6 col-lg-3 text-center  colorRottenCherry">
+                      <div class="col-12 col-sm-6 col-lg-3 text-center colorRottenCherry">
                           <h4 class="font-italic font-weight-bold">Find us</h4>
                           <div id="socialN">
                           </div>
                       </div>
                   </div>
                   <div class="row">
-                      <div class="col-12 text-center  colorRottenCherry">
+                      <div class="col-12 text-center colorRottenCherry">
                           <h6 class="font-weight-bold">Copyright &copy; Dreamy| Furniture shop</h6>
                       </div>
                   </div>
