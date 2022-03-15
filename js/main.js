@@ -71,6 +71,7 @@ window.onload = function(){
     $("#discountFilter").change(allFilters);
     $(".radioS").change(allFilters);
     $("#find").blur(allFilters);
+
     $("#removeFilter").click(removeAll);
 
     }
@@ -410,10 +411,10 @@ function modelSearch(data){
 
 }
 
+
 $('.colV').click(changeView);
-
 function changeView(){
-
+ 
   var products=document.querySelectorAll('.product');
 
   if($(this).data('value')==2){
@@ -434,7 +435,7 @@ function changeView(){
     let product = getItem('products');
       productsHtml(product);
   }
-
+  
 }
 
 function allFilters(){
@@ -606,7 +607,7 @@ function showCartProducts(product){
               <p>${p.name}</p>
             </div>
             <div class="col text-center py-4">
-              <p>${p.quantity}
+              <p>${p.quantity}</p>
             </div>
             <div class="col text-center py-4">
               <p>${p.price.active*p.quantity}</p>
